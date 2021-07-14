@@ -1,0 +1,22 @@
+@startuml UseCase
+skinparam actorStyle hollow
+top to bottom direction
+
+:FISI Lehrling: as Lehrling
+
+rectangle FiSI_LernApp_v1.0 {
+
+(Auswahlmöglichkeiten auswählen "Startseite")
+(Schwerpunkt üben) .> (Auswahlmöglichkeiten auswählen "Startseite"): <include>
+(Frage markieren) ..> (Frage beantworten) : <include>
+(Antwort prüfen) ..> (Frage beantworten) : <include>
+(Frage wechseln) .> (Frage beantworten) : <include>
+(Auswahlmöglichkeiten auswählen "Startseite") -d--> (Frage beantworten)
+(Frage beantworten) -[hidden]-> (Fragen hinzufügen)
+
+}
+Lehrling -l- (Auswahlmöglichkeiten auswählen "Startseite")
+Lehrling -l- (Frage beantworten)
+Lehrling -l- (Fragen hinzufügen)
+
+@enduml
