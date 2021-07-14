@@ -5,6 +5,7 @@ class Frage {
     - fragestellung : String
     - antworten: String[]
     - schwerpunkt: String
+    - markiert: boolean
 }
 
 class Schwerpunkt {
