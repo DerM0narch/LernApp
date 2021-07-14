@@ -4,6 +4,7 @@ public class Frage {
 
   private String fragestellung;
   private String[] antworten;
+  private boolean makiert;
 
     public Frage(String fragestellung, String[] antworten) {
         this.fragestellung = fragestellung;
@@ -24,5 +25,13 @@ public class Frage {
 
     public void setAntworten(String[] antworten) {
         this.antworten = antworten;
+    }
+
+    public boolean isMakiert() {
+        return makiert;
+    }
+
+    public void setMakiert(boolean makiert) {
+        this.makiert = makiert;
     }
 }
