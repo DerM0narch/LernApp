@@ -3,7 +3,7 @@ package GUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class ControllerStartseite {
+public class ControllerHilfe {
 
     @FXML
     private Button buttonzufaelligeFragen;
