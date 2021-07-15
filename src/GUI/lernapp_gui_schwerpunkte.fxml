@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #0068c4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #0068c4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerSchwerpunkt">
    <children>
       <Label layoutX="10.0" layoutY="314.0" text="Version 1.0" textFill="#ffe555" />
       <Label layoutX="81.0" layoutY="46.0" text="Themenschwerpunkte" textFill="#ffe667">
@@ -30,6 +30,6 @@
       <Button layoutX="191.0" layoutY="101.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="IT-Sicherheit" />
       <Button layoutX="63.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Hardware" />
       <Button layoutX="191.0" layoutY="146.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Software" />
-      <Button layoutX="145.0" layoutY="285.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" text="Zurück" />
+      <Button fx:id="zurueck" layoutX="145.0" layoutY="285.0" mnemonicParsing="false" onAction="#zurueck" prefHeight="25.0" prefWidth="76.0" text="Zurück" />
    </children>
 </Pane>
