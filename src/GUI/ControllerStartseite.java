@@ -11,10 +11,8 @@ public class ControllerStartseite {
     @FXML
     public void intitialize(){}
 
-
-    @FXML
-    public void clickButton(){System.out.println("Zufällige Frage");}
-    public void clickHilfe(){System.out.println("HilfeFenster"); }
+    public void clickButton(){
+        System.out.println("Knopf gedürckt");
     }
 
-
+}
