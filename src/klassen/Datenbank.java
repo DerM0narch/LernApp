@@ -61,7 +61,6 @@ public class Datenbank {
         ResultSet rs;
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(URL);
-            c.setAutoCommit(false);
 
             stmt = c.createStatement();
             rs = stmt.executeQuery(sql);

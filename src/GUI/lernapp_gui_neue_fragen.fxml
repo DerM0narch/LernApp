@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="273.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="273.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerFrageHinzufuegen">
    <children>
       <Label layoutX="22.0" layoutY="13.0" text="Frage">
          <font>
@@ -21,21 +21,21 @@
       </Label>
       <Button layoutX="17.0" layoutY="338.0" mnemonicParsing="false" text="&lt; Zurück" />
       <Button layoutX="149.0" layoutY="338.0" mnemonicParsing="false" text="Frage hinzufügen" />
-      <TextArea layoutX="24.0" layoutY="34.0" prefHeight="141.0" prefWidth="225.0" />
-      <TextField layoutX="90.0" layoutY="215.0" prefHeight="25.0" prefWidth="173.0" />
-      <TextField layoutX="90.0" layoutY="249.0" prefHeight="25.0" prefWidth="173.0" />
-      <TextField layoutX="90.0" layoutY="282.0" prefHeight="25.0" prefWidth="173.0" />
-      <Label layoutX="22.0" layoutY="217.0" text="Antwort 1">
+      <TextArea fx:id="taFrage" layoutX="24.0" layoutY="34.0" prefHeight="141.0" prefWidth="225.0" />
+      <TextField fx:id="tfRichtig" layoutX="90.0" layoutY="215.0" prefHeight="25.0" prefWidth="173.0" />
+      <TextField fx:id="tfFalsch1" layoutX="90.0" layoutY="249.0" prefHeight="25.0" prefWidth="173.0" />
+      <TextField fx:id="tfFalsch2" layoutX="90.0" layoutY="282.0" prefHeight="25.0" prefWidth="173.0" />
+      <Label layoutX="18.0" layoutY="218.0" text="Antwort 1">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="252.0" text="Antwort 2">
+      <Label layoutX="18.0" layoutY="252.0" text="Antwort 2">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="285.0" text="Antwort 3">
+      <Label layoutX="18.0" layoutY="285.0" text="Antwort 3">
          <font>
             <Font size="14.0" />
          </font>

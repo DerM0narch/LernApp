@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 
 public class ControllerFrageSeite {
 
+
     @FXML
     private Button buttonzufaelligeFragen;
 
