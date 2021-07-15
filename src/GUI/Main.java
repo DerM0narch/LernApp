@@ -20,8 +20,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("lernapp_gui_start.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("FiSi LernApp v1.0");
+        primaryStage.setScene(new Scene(root, 366, 336));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
