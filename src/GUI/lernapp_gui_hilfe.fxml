@@ -14,7 +14,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Button layoutX="150.0" layoutY="302.0" mnemonicParsing="false" text="Schließen" />
+      <Button fx:id="ButtonHilfeZurueck" layoutX="157.0" layoutY="289.0" mnemonicParsing="false" text="Zurück" />
       <Text fill="#ffe667" layoutX="26.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Die FiSi LernApp V1.0 ist eine Software, speziell entwickelt für Auszubildene zum Fachinformatiker für Systemintegration. Sie beinhaltet 50 Fragen aus den Themenschwergebieten: Netzwerktechnik, IT-Sicherheit, Hardware, sowie Software.  Es können eigene Fragen und Antworten hinzugefügt werden." wrappingWidth="313.4700736999512" />
    </children>
 </Pane>

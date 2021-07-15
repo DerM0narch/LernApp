@@ -1,18 +1,26 @@
 package GUI;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import java.io.IOException;
 
 public class ControllerHilfe {
 
     @FXML
-    private Button buttonzufaelligeFragen;
+    public void ButtonHilfeZurueck(ActionEvent event) throws IOException {
 
-    @FXML
-    public void intitialize(){}
+        Parent hilfeView = FXMLLoader.load(getClass().getResource("lernapp_gui_start.fxml"));
+        Scene hilfeViewScene = new Scene(hilfeView);
 
-    public void clickButton(){
-        System.out.println("Knopf gedürckt");
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(hilfeViewScene);
+        window.show();
     }
-
 }

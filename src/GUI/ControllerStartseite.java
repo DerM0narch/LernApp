@@ -13,15 +13,9 @@ import java.io.IOException;
 public class ControllerStartseite {
 
     @FXML
-    private Button buttonzufaelligeFragen;
-
-    @FXML
     public void intitialize(){}
 
-    public void clickButton(){
-        System.out.println("Knopf gedürckt");
-    }
-
+// Button: Zufällige Fragen
     public void SWZufaelligeFragen(ActionEvent event) throws IOException {
 
         Parent fragenView = FXMLLoader.load(getClass().getResource("lernapp_gui_fragen.fxml"));
@@ -32,5 +26,34 @@ public class ControllerStartseite {
         window.setScene(fragenViewScene);
         window.show();
     }
+
+
+// Button: Hilfe
+    @FXML
+    public void HilfeButton(ActionEvent event) throws IOException {
+
+        Parent hilfeView = FXMLLoader.load(getClass().getResource("lernapp_gui_hilfe.fxml"));
+        Scene hilfeViewScene = new Scene(hilfeView);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(hilfeViewScene);
+        window.show();
+    }
+
+
+// Button: Schwerpunkte
+    @FXML
+    public void ButtonSchwerpunkte(ActionEvent event) throws IOException {
+
+        Parent hilfeView = FXMLLoader.load(getClass().getResource("lernapp_gui_schwerpunkte.fxml"));
+        Scene hilfeViewScene = new Scene(hilfeView);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(hilfeViewScene);
+        window.show();
+    }
+
 
 }
