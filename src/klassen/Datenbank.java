@@ -37,12 +37,10 @@ public class Datenbank {
         try {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection(URL);
-            c.setAutoCommit(false);
 
             stmt = c.createStatement();
             stmt.executeUpdate(sql);
             stmt.close();
-            c.commit();
             c.close();
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );

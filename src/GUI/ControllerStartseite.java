@@ -8,9 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import klassen.Datenbank;
+
 import java.io.IOException;
 
 public class ControllerStartseite {
+    private final Datenbank db = new Datenbank();
 
     @FXML
     public void intitialize(){}
@@ -28,7 +31,7 @@ public class ControllerStartseite {
     }
 
 
-// Button: Hilfe
+    // Button: Hilfe
     @FXML
     public void HilfeButton(ActionEvent event) throws IOException {
 
@@ -53,6 +56,7 @@ public class ControllerStartseite {
 
         window.setScene(hilfeViewScene);
         window.show();
+
     }
 
 

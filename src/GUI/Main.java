@@ -7,6 +7,8 @@ import javafx.scene.image.Image;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import klassen.Datenbank;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 /**

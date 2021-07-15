@@ -17,8 +17,7 @@ public class ControllerFrageHinzufuegen {
     @FXML
     public void intitialize(){}
 
-    public void addQuestion(    ){
-
+    public void addQuestion( ) {
     }
 
 
