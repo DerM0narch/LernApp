@@ -1,0 +1,73 @@
+@startuml klassendiagramm
+
+frame klassen{
+class Frage {
+    - fragestellung : String
+    - antworten: String[]
+    - markiert: boolean
+}
+
+class Schwerpunkt {
+    - fragen : Frage[]
+    - schwerpunkt : String
+}
+
+
+}
+
+frame JavaFX {
+
+class Main {
+    --
+    + start() : void
+}
+class ControllerStartseite {
+    + SWZufaelligeFragen()
+    + SWSchwerpunktwaehlen()
+    + SWLetzeZehnFehler()
+    + SWMarkierteFragen()
+    + SWFrageHinzufuegen()
+}
+
+class ControllerFrageseite {
+    - frageTextbox: TextView
+    - radioButtons : RadioButton
+    - labelAntwort1 : Label
+    - labelAntwort2 : Label
+    - labelAntwort3 : Label
+    --
+    + antwortPruefen()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + markierenFrage()
+    + frageAnzeigeAktualisieren()
+    + zureuck()
+}
+
+class ControllerSchwerpunkt{
+    --
+    + schwerpunktNetzwerk()
+    + schwerpunktHardware()
+    + schwerpunktSoftware()
+    + schwerpunktITSicherheit()
+    + zurueck()
+}
+
+class ControllerFragehinzufuegen{
+    - frage : String
+    - antwort1 : String
+    - antwort2 : String
+    - antwort3 : String
+    --
+    + frageHinzufuegen()
+    + zurueck()
+}
+
+class ControllerHilfe{
+--
+zurueck()
+}
+
+}
+
+@enduml
