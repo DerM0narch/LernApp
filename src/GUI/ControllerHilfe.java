@@ -6,13 +6,14 @@ import javafx.scene.control.Button;
 public class ControllerHilfe {
 
     @FXML
-    private Button buttonzufaelligeFragen;
+    private Button linkHilfe;
 
     @FXML
     public void intitialize(){}
-
-    public void clickButton(){
-        System.out.println("Knopf gedürckt");
+    @FXML
+    public void HilfeCloseButton(){
+        System.out.println("Schließen");
     }
+
 
 }

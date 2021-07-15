@@ -25,11 +25,11 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/C:/Users/TAuser/Desktop/lernapp_gui/lernapp_gui_bg.png" />
+                  <Image url="file:src/GUI/lernapp_gui_bg.png" />
                </source>
             </ImageInput>
          </effect>
       </Pane>
-      <Hyperlink layoutX="324.0" layoutY="310.0" text="Hilfe" textFill="#ffe555" />
+      <Hyperlink id="LinkHilfe" fx:id="linkHilfe" layoutX="324.0" layoutY="310.0" onAction="#clickHilfe" text="Hilfe" textFill="#ffe555" />
    </children>
 </Pane>
