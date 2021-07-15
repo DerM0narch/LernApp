@@ -7,6 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Objects;
 /**
  * The type Main.
  */
@@ -21,10 +23,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lernapp_gui_start.fxml")));
+        primaryStage.setTitle("FiSi LernApp v1.0");
+        primaryStage.setScene(new Scene(root, 366, 336));
+        primaryStage.setResizable(false);
         primaryStage.show();
+
     }
 
 
