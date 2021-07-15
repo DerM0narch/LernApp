@@ -13,7 +13,7 @@ import java.io.IOException;
 public class ControllerHilfe {
 
     @FXML
-    public void ButtonHilfeZurueck(ActionEvent event) throws IOException {
+    public void zurueck(ActionEvent event) throws IOException {
 
         Parent hilfeView = FXMLLoader.load(getClass().getResource("lernapp_gui_start.fxml"));
         Scene hilfeViewScene = new Scene(hilfeView);
