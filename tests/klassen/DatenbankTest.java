@@ -3,8 +3,14 @@ package klassen;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Datenbank test
+ */
 class DatenbankTest {
 
+    /**
+     * Test der select Befehle.
+     */
     @Test
     void testSelect() {
         Datenbank db = new Datenbank();
@@ -13,5 +19,6 @@ class DatenbankTest {
         assertEquals(db.selectRichtig("SELECT * FROM fragen WHERE ID = 1"), "WPA2");
         assertEquals(db.selectErsteFalsch("SELECT * FROM fragen WHERE ID = 1"), "WEP");
         assertEquals(db.selectZweiteFalsch("SELECT * FROM fragen WHERE ID = 1"), "WPA");
+        assertFalse(db.selectMarkiert("SELECT * FROM fragen WHERE ID = 1"));
     }
 }
