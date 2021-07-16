@@ -1,4 +1,4 @@
-package klassen;
+package lernApp;
 
 /**
  * Schwerpunktklasse - Aufteilung der Fragen in Schwerpunkte

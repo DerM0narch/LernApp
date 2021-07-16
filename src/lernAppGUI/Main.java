@@ -1,15 +1,12 @@
-package GUI;
+package lernAppGUI;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import klassen.Datenbank;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 /**
  * The type Main.

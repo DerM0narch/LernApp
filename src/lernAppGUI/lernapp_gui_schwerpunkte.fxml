@@ -20,7 +20,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:/C:/Users/TAuser/Desktop/FiSi_LernApp/lernapp_gui/lernapp_gui_bg.png" />
+                  <Image url="/images/lernapp_icon.png" />
                </source>
             </ImageInput>
          </effect>

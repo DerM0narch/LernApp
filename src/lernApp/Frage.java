@@ -1,4 +1,4 @@
-package klassen;
+package lernApp;
 
 /**
  * Frageklasse - beinhaltet Fragen und Antworten

@@ -1,10 +1,9 @@
-package GUI;
+package lernAppGUI;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import klassen.Datenbank;
+import lernApp.Datenbank;
 
 public class ControllerFrageHinzufuegen {
 

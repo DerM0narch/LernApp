@@ -1,4 +1,4 @@
-package klassen;
+package lernApp;
 
 import java.sql.*;
 

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #0068c4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ControllerStartseite">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #0068c4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerStartseite">
    <children>
       <Button fx:id="buttonzufaelligeFragen" layoutX="118.0" layoutY="80.0" mnemonicParsing="false" onAction="#SWZufaelligeFragen" prefHeight="32.0" prefWidth="130.0" text="Zufällige Fragen" />
       <Label layoutX="10.0" layoutY="314.0" text="Version 1.0" textFill="#ffe555" />
@@ -25,7 +25,7 @@
          <effect>
             <ImageInput>
                <source>
-                  <Image url="file:src/GUI/images/lernapp_gui_bg.png" />
+                  <Image url="/images/lernapp_gui_bg.png" />
                </source>
             </ImageInput>
          </effect>

@@ -1,4 +1,4 @@
-package GUI;
+package lernAppGUI;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
