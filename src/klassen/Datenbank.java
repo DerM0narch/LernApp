@@ -188,4 +188,32 @@ public class Datenbank {
         }
         return falsch;
     }
+
+    /**
+     * Select markiert as boolean
+     *
+     * @param sql the sql statement
+     * @return markiert as boolean
+     */
+    public boolean selectMarkiert(String sql) {
+        int markiert = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
+            c.setAutoCommit(false);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            markiert = rs.getInt("markiert");
+
+            rs.close();
+            stmt.close();
+            c.close();
+            return markiert != 0;
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        return markiert != 0;
+    }
 }

@@ -12,6 +12,20 @@ class Schwerpunkt {
     - schwerpunkt : String
 }
 
+class Datenbank {
+    - c : Connection
+    - stmt : Statement
+    - URL : final String
+    --
+    + execute()
+    + insert()
+    + selectId()
+    + selectFrage()
+    + selectRichtig()
+    + selectErsteFalsch()
+    + selectZweiteFalsch()
+    + selectMarkiert()
+}
 
 }
 
@@ -64,8 +78,8 @@ class ControllerFragehinzufuegen{
 }
 
 class ControllerHilfe{
---
-zurueck()
+    --
+    + zurueck()
 }
 
 }
