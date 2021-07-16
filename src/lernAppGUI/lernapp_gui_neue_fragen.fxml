@@ -7,35 +7,35 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="273.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerFrageHinzufuegen">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #0068c4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerFrageHinzufuegen">
    <children>
-      <Label layoutX="22.0" layoutY="13.0" text="Frage">
+      <Label layoutX="22.0" layoutY="9.0" text="Frage" textFill="#ffe667">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="188.0" text="Antwort">
+      <Label layoutX="22.0" layoutY="169.0" text="Antwort" textFill="#ffe667">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="17.0" layoutY="338.0" mnemonicParsing="false" text="&lt; Zurück" />
-      <Button layoutX="149.0" layoutY="338.0" mnemonicParsing="false" text="Frage hinzufügen" />
-      <TextArea fx:id="taFrage" layoutX="24.0" layoutY="34.0" prefHeight="141.0" prefWidth="225.0" />
-      <TextField fx:id="tfRichtig" layoutX="90.0" layoutY="215.0" prefHeight="25.0" prefWidth="173.0" />
-      <TextField fx:id="tfFalsch1" layoutX="90.0" layoutY="249.0" prefHeight="25.0" prefWidth="173.0" />
-      <TextField fx:id="tfFalsch2" layoutX="90.0" layoutY="282.0" prefHeight="25.0" prefWidth="173.0" />
-      <Label layoutX="18.0" layoutY="218.0" text="Antwort 1">
+      <Button layoutX="23.0" layoutY="301.0" mnemonicParsing="false" onAction="#zurueck" text="&lt; Zurück" />
+      <Button layoutX="232.0" layoutY="301.0" mnemonicParsing="false" text="Frage hinzufügen" />
+      <TextArea layoutX="24.0" layoutY="34.0" prefHeight="126.0" prefWidth="316.0" />
+      <TextField layoutX="90.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0" />
+      <TextField layoutX="90.0" layoutY="230.0" prefHeight="25.0" prefWidth="251.0" />
+      <TextField layoutX="90.0" layoutY="263.0" prefHeight="25.0" prefWidth="251.0" />
+      <Label layoutX="22.0" layoutY="198.0" text="Antwort 1" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="252.0" text="Antwort 2">
+      <Label layoutX="23.0" layoutY="233.0" text="Antwort 2" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="285.0" text="Antwort 3">
+      <Label layoutX="24.0" layoutY="266.0" text="Antwort 3" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>

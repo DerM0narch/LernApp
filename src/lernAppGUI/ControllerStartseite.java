@@ -58,6 +58,18 @@ public class ControllerStartseite {
 
     }
 
+    // Button: Fragen hinzufügen
+    @FXML
+    public void buttonFragehinzufuegen(ActionEvent event) throws IOException {
+
+        Parent hinzufuegenView = FXMLLoader.load(getClass().getResource("lernapp_gui_neue_fragen.fxml"));
+        Scene hinzufuegenViewScene = new Scene(hinzufuegenView);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(hinzufuegenViewScene);
+        window.show();
+    }
 
 
 }
