@@ -1,6 +1,6 @@
 @startuml klassendiagramm
 
-frame klassen{
+frame LernApp{
 class Frage {
     - fragestellung : String
     - antworten: String[]
@@ -29,7 +29,7 @@ class Datenbank {
 
 }
 
-frame JavaFX {
+frame LernAppGUI {
 
 class Main {
     --
