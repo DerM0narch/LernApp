@@ -1,6 +1,6 @@
 @startuml klassendiagramm
 
-frame klassen{
+frame LernApp{
 class Frage {
     - fragestellung : String
     - antworten: String[]
@@ -12,10 +12,24 @@ class Schwerpunkt {
     - schwerpunkt : String
 }
 
+class Datenbank {
+    - c : Connection
+    - stmt : Statement
+    - URL : final String
+    --
+    + execute()
+    + insert()
+    + selectId()
+    + selectFrage()
+    + selectRichtig()
+    + selectErsteFalsch()
+    + selectZweiteFalsch()
+    + selectMarkiert()
+}
 
 }
 
-frame JavaFX {
+frame LernAppGUI {
 
 class Main {
     --
@@ -64,8 +78,8 @@ class ControllerFragehinzufuegen{
 }
 
 class ControllerHilfe{
---
-zurueck()
+    --
+    + zurueck()
 }
 
 }
