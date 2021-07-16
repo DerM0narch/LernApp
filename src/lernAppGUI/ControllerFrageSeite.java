@@ -76,7 +76,7 @@ public class ControllerFrageSeite {
         radio2.setText(antwortenarray[1]);
         radio3.setText(antwortenarray[2]);
         buttonzurueck.setDisable(true);
-        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
+        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
 
         antworthash.clear();
 
@@ -99,7 +99,7 @@ public class ControllerFrageSeite {
         try {
             ++aktuelleFrage;
             buttonzurueck.setDisable(false);
-            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
             antworthash.clear();
             antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
@@ -132,7 +132,7 @@ public class ControllerFrageSeite {
         try {
             --aktuelleFrage;
             buttonweiter.setDisable(false);
-            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
             antworthash.clear();
             antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
