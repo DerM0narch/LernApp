@@ -14,12 +14,12 @@ public class ControllerHilfe {
     @FXML
     public void zurueck(ActionEvent event) throws IOException {
 
-        Parent hilfeView = FXMLLoader.load(getClass().getResource("lernapp_gui_start.fxml"));
-        Scene hilfeViewScene = new Scene(hilfeView);
+        Parent startView = FXMLLoader.load(getClass().getResource("lernapp_gui_start.fxml"));
+        Scene startViewScene = new Scene(startView);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(hilfeViewScene);
+        window.setScene(startViewScene);
         window.show();
     }
 }

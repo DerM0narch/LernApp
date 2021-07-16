@@ -216,4 +216,30 @@ public class Datenbank {
         }
         return markiert != 0;
     }
+
+    /**
+     * Counts questions
+     *
+     * @return Number of total questions
+     */
+    public int selectCount() {
+        int count = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select count(*) as total from fragen");
+            count = rs.getInt("total");
+
+            rs.close();
+            stmt.close();
+            c.close();
+            return count;
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        return count;
+    }
 }
