@@ -7,14 +7,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lernApp.Datenbank;
 
 import java.io.IOException;
-import java.util.LinkedHashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class ControllerFrageSeite {
 
@@ -22,6 +22,8 @@ public class ControllerFrageSeite {
     private Datenbank db = new Datenbank();
     private Integer[] fragenarray;
     private int aktuelleFrage = 0;
+    private ArrayList<String> antworthash = new ArrayList<String>();
+    private String[] antwortenarray;
 
     @FXML
     private Button buttonabbrechen, buttonweiter, buttonpruefen, buttonzurueck;
@@ -39,6 +41,9 @@ public class ControllerFrageSeite {
     private Label labelAnzeige;
 
     @FXML
+    private ToggleGroup antworten;
+
+    @FXML
     public void initialize(){
         //textfrage.setW
         int anzahlFragen = db.selectCount();
@@ -50,17 +55,30 @@ public class ControllerFrageSeite {
         fragenarray = new Integer[fragenhash.size()];
         fragenarray = fragenhash.toArray(fragenarray);
 
-        for (int i = 0; i < fragenarray.length; i++){
+
+        /*for (int i = 0; i < fragenarray.length; i++){
             System.out.println(fragenarray[i]);
-        }
+        }*/
+
+        antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+        antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+        antworthash.add(db.selectZweiteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+
+        Collections.shuffle(antworthash);
+
+        antwortenarray = new String[antworthash.size()];
+        antwortenarray = antworthash.toArray(antwortenarray);
+
 
 
         textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio1.setText(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio2.setText(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio3.setText(db.selectZweiteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+        radio1.setText(antwortenarray[0]);
+        radio2.setText(antwortenarray[1]);
+        radio3.setText(antwortenarray[2]);
         buttonzurueck.setDisable(true);
         labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
+
+        antworthash.clear();
 
     }
 
@@ -78,31 +96,78 @@ public class ControllerFrageSeite {
     }
 
     public void naechsteFrage(ActionEvent event) {
-        aktuelleFrage++;
-        buttonzurueck.setDisable(false);
-        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
-        if (aktuelleFrage > 18){
-            buttonweiter.setDisable(true); ;
-        }
+        try {
+            ++aktuelleFrage;
+            buttonzurueck.setDisable(false);
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
+            antworthash.clear();
+            antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+            antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+            antworthash.add(db.selectZweiteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
 
-        textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio1.setText(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio2.setText(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio3.setText(db.selectZweiteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+            Collections.shuffle(antworthash);
+
+            antwortenarray = new String[antworthash.size()];
+            antwortenarray = antworthash.toArray(antwortenarray);
+
+            if (aktuelleFrage > 18){
+                buttonweiter.setDisable(true); ;
+            }
+
+            textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+            radio1.setText(antwortenarray[0]);
+            radio2.setText(antwortenarray[1]);
+            radio3.setText(antwortenarray[2]);
+
+            RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
+            ausgewaehlt.setSelected(false);
+            ausgewaehlt.setTextFill(Color.web("#ffe667"));
+        } catch (NullPointerException e) {
+
+        }
     }
 
     public void vorherigeFrage(ActionEvent event) {
-        aktuelleFrage--;
-        buttonweiter.setDisable(false);
-        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
-        if (aktuelleFrage < 1){
-            buttonzurueck.setDisable(true); ;
-        }
-        textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio1.setText(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio2.setText(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio3.setText(db.selectZweiteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+        try {
+            --aktuelleFrage;
+            buttonweiter.setDisable(false);
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von 20");
+            antworthash.clear();
+            antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+            antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+            antworthash.add(db.selectZweiteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
 
+            Collections.shuffle(antworthash);
+
+            antwortenarray = new String[antworthash.size()];
+            antwortenarray = antworthash.toArray(antwortenarray);
+
+            if (aktuelleFrage < 1){
+                buttonzurueck.setDisable(true); ;
+            }
+            textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+            radio1.setText(antwortenarray[0]);
+            radio2.setText(antwortenarray[1]);
+            radio3.setText(antwortenarray[2]);
+
+        } catch (NullPointerException e) {
+
+        }
+    }
+
+    public void antwortPruefen(ActionEvent event) {
+        try {
+            RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
+            String antwort = ausgewaehlt.getText();
+
+            if (antwort.equals(db.selectRichtig("SELECT * from fragen where id= "+ fragenarray[aktuelleFrage]))) {
+                ausgewaehlt.setTextFill(Color.web("#00FF00"));
+            } else {
+                ausgewaehlt.setTextFill(Color.web("#FF0000"));
+            }
+        } catch (NullPointerException e) {
+
+        }
     }
 
 
