@@ -10,7 +10,9 @@
 >- Schwerpunkte auswählen <br>
 >- 10 letzte falsche Fragen anzeigen lassen <br>
 >- Eigene Fragen hinzufügen <br>
+>- Logo wieder hinzufügen
  
 >##Could
 >- Desktop-Programm in Smartphone-App umwandeln <br>
 >- Statistik über wie viele falsch etc <br>
+>- für Andreas ne hübschere Markierung der Fragen ;)

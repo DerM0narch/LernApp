@@ -48,7 +48,7 @@ public class ControllerFrageSeite {
         //textfrage.setW
         int anzahlFragen = db.selectCount();
 
-        while (fragenhash.size() < 20){
+        while (fragenhash.size() < 20 || fragenhash.size() < anzahlFragen){
             fragenhash.add(new Random().nextInt(anzahlFragen));
         }
 
