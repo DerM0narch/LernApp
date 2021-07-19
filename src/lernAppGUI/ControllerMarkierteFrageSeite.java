@@ -66,7 +66,7 @@ public class ControllerMarkierteFrageSeite {
         radio1.setText(antwortenarray[0]);
         radio2.setText(antwortenarray[1]);
         radio3.setText(antwortenarray[2]);
-        if (aktuelleFrage == (fragenarray.length -1)) {
+        if (aktuelleFrage == (fragenarray.length - 2)) {
             buttonweiter.setDisable(true);
         }
         buttonzurueck.setDisable(true);
@@ -107,7 +107,7 @@ public class ControllerMarkierteFrageSeite {
             antwortenarray = new String[antworthash.size()];
             antwortenarray = antworthash.toArray(antwortenarray);
 
-            if (aktuelleFrage > (fragenarray.length - 1)){
+            if (aktuelleFrage > (fragenarray.length - 2)){
                 buttonweiter.setDisable(true); ;
             }
 

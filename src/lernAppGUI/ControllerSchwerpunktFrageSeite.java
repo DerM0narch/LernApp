@@ -8,22 +8,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lernApp.Datenbank;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
-public class ControllerFrageSeite {
+public class ControllerSchwerpunktFrageSeite {
 
-    private Set<Integer> fragenhash = new LinkedHashSet<Integer>();
     private Datenbank db = new Datenbank();
     private Integer[] fragenarray;
     private int aktuelleFrage = 0;
     private ArrayList<String> antworthash = new ArrayList<String>();
     private String[] antwortenarray;
+    private String schwerpunkt;
 
     @FXML
     private Button buttonabbrechen, buttonweiter, buttonpruefen, buttonzurueck;
@@ -43,18 +42,11 @@ public class ControllerFrageSeite {
     @FXML
     private ToggleGroup antworten;
 
-    @FXML
-    public void initialize(){
-        //textfrage.setW
-        int anzahlFragen = db.selectCount();
-
-        while (fragenhash.size() < 20){
-            fragenhash.add(new Random().nextInt(anzahlFragen));
-        }
-
-        fragenarray = new Integer[fragenhash.size()];
-        fragenarray = fragenhash.toArray(fragenarray);
-
+    public void manuellInitialisation(){
+        /*ControllerSchwerpunkt schwerpunkt = new ControllerSchwerpunkt();
+        System.out.println(schwerpunkt.getSchwerpunkt()); */
+        fragenarray = db.schwerpunktFragen(schwerpunkt);
+        System.out.println(fragenarray.length);
 
         /*for (int i = 0; i < fragenarray.length; i++){
             System.out.println(fragenarray[i]);
@@ -75,8 +67,11 @@ public class ControllerFrageSeite {
         radio1.setText(antwortenarray[0]);
         radio2.setText(antwortenarray[1]);
         radio3.setText(antwortenarray[2]);
+        if (aktuelleFrage == (fragenarray.length -1)) {
+            buttonweiter.setDisable(true);
+        }
         buttonzurueck.setDisable(true);
-        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
+        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
 
         checkboxmakieren.setSelected(db.selectMarkiert("Select * from fragen where id = " + fragenarray[aktuelleFrage]));
 
@@ -101,8 +96,11 @@ public class ControllerFrageSeite {
     public void naechsteFrage(ActionEvent event) {
         try {
             ++aktuelleFrage;
+            if (aktuelleFrage > (fragenarray.length - 2)){
+                buttonweiter.setDisable(true);
+            }
             buttonzurueck.setDisable(false);
-            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
             antworthash.clear();
             antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
@@ -113,9 +111,7 @@ public class ControllerFrageSeite {
             antwortenarray = new String[antworthash.size()];
             antwortenarray = antworthash.toArray(antwortenarray);
 
-            if (aktuelleFrage > (fragenarray.length - 2)){
-                buttonweiter.setDisable(true); ;
-            }
+
 
             textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             radio1.setText(antwortenarray[0]);
@@ -143,7 +139,7 @@ public class ControllerFrageSeite {
         try {
             --aktuelleFrage;
             buttonweiter.setDisable(false);
-            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
             antworthash.clear();
             antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
@@ -205,7 +201,9 @@ public class ControllerFrageSeite {
 
     }
 
-
+    public void setSchwerpunkt(String schwerpunkt) {
+        this.schwerpunkt = schwerpunkt;
+    }
 
 
 

@@ -1,5 +1,7 @@
 package lernApp;
 
+import lernAppGUI.ControllerSchwerpunkt;
+
 import java.sql.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -273,4 +275,39 @@ public class Datenbank {
 
         return new Integer[]{0};
     }
+
+    public Integer[] schwerpunktFragen(String schwerpunkt) {
+        try {
+            System.out.println("hi " + schwerpunkt);
+            Set<Integer> schwerpunktFragenHash = new LinkedHashSet<Integer>();
+            Integer[] SchwerpunktFragenArray;
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from fragen where schwerpunkt = '" + schwerpunkt + "'");
+
+            while (rs.next()) {
+                schwerpunktFragenHash.add(rs.getInt("id"));
+            }
+
+            SchwerpunktFragenArray = new Integer[schwerpunktFragenHash.size()];
+            SchwerpunktFragenArray = schwerpunktFragenHash.toArray(SchwerpunktFragenArray);
+
+            rs.close();
+            stmt.close();
+            c.close();
+
+            return SchwerpunktFragenArray;
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+
+        return new Integer[]{0};
+    }
+
+
+
 }
