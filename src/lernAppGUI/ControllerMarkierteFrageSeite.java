@@ -8,17 +8,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lernApp.Datenbank;
 
 import java.io.IOException;
 import java.util.*;
 
-public class ControllerFrageSeite {
+public class ControllerMarkierteFrageSeite {
 
-    private Set<Integer> fragenhash = new LinkedHashSet<Integer>();
     private Datenbank db = new Datenbank();
     private Integer[] fragenarray;
     private int aktuelleFrage = 0;
@@ -45,15 +42,9 @@ public class ControllerFrageSeite {
 
     @FXML
     public void initialize(){
-        //textfrage.setW
-        int anzahlFragen = db.selectCount();
 
-        while (fragenhash.size() < 20){
-            fragenhash.add(new Random().nextInt(anzahlFragen));
-        }
 
-        fragenarray = new Integer[fragenhash.size()];
-        fragenarray = fragenhash.toArray(fragenarray);
+        fragenarray = db.markierteFragen();
 
 
         /*for (int i = 0; i < fragenarray.length; i++){
@@ -76,7 +67,7 @@ public class ControllerFrageSeite {
         radio2.setText(antwortenarray[1]);
         radio3.setText(antwortenarray[2]);
         buttonzurueck.setDisable(true);
-        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
+        labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
 
         checkboxmakieren.setSelected(db.selectMarkiert("Select * from fragen where id = " + fragenarray[aktuelleFrage]));
 
@@ -102,7 +93,7 @@ public class ControllerFrageSeite {
         try {
             ++aktuelleFrage;
             buttonzurueck.setDisable(false);
-            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
             antworthash.clear();
             antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
@@ -143,7 +134,7 @@ public class ControllerFrageSeite {
         try {
             --aktuelleFrage;
             buttonweiter.setDisable(false);
-            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
+            labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
             antworthash.clear();
             antworthash.add(db.selectRichtig("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             antworthash.add(db.selectErsteFalsch("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));

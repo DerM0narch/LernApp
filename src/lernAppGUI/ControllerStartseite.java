@@ -71,5 +71,15 @@ public class ControllerStartseite {
         window.show();
     }
 
+    @FXML
+    public void SWMarkierteFragen(ActionEvent event) throws IOException{
+        Parent hinzufuegenView = FXMLLoader.load(getClass().getResource("lernapp_gui_markierteFragen.fxml"));
+        Scene hinzufuegenViewScene = new Scene(hinzufuegenView);
+
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(hinzufuegenViewScene);
+        window.show();
+    }
 
 }

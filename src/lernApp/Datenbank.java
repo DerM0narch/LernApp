@@ -1,6 +1,8 @@
 package lernApp;
 
 import java.sql.*;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 /**
  * Verbindung zur Datenbank mit Befehlen
@@ -241,5 +243,34 @@ public class Datenbank {
             System.exit(0);
         }
         return count;
+    }
+
+    public Integer[] markierteFragen() {
+        try {
+            Set<Integer> markierteFragenHash = new LinkedHashSet<Integer>();
+            Integer[] markierteFragenArray;
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from fragen where markiert = 1");
+            while (rs.next()) {
+                markierteFragenHash.add(rs.getInt("id"));
+            }
+            markierteFragenArray = new Integer[markierteFragenHash.size()];
+            markierteFragenArray = markierteFragenHash.toArray(markierteFragenArray);
+
+            rs.close();
+            stmt.close();
+            c.close();
+
+            return markierteFragenArray;
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+
+        return new Integer[]{0};
     }
 }
