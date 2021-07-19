@@ -121,7 +121,9 @@ public class ControllerFrageSeite {
 
             RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
             ausgewaehlt.setSelected(false);
-            ausgewaehlt.setTextFill(Color.web("#ffe667"));
+            radio1.setTextFill(Color.web("#ffe667"));
+            radio2.setTextFill(Color.web("#ffe667"));
+            radio3.setTextFill(Color.web("#ffe667"));
             buttonpruefen.setDisable(false);
         } catch (NullPointerException e) {
 
@@ -150,8 +152,14 @@ public class ControllerFrageSeite {
             radio1.setText(antwortenarray[0]);
             radio2.setText(antwortenarray[1]);
             radio3.setText(antwortenarray[2]);
+            RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
+            ausgewaehlt.setSelected(false);
 
+            radio1.setTextFill(Color.web("#ffe667"));
+            radio2.setTextFill(Color.web("#ffe667"));
+            radio3.setTextFill(Color.web("#ffe667"));
             buttonpruefen.setDisable(false);
+
 
         } catch (NullPointerException e) {
 
@@ -174,6 +182,8 @@ public class ControllerFrageSeite {
 
         }
     }
+
+
 
 
 
