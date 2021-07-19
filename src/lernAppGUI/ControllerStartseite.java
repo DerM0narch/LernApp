@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import lernApp.Datenbank;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ControllerStartseite {
     private final Datenbank db = new Datenbank();
@@ -73,12 +74,13 @@ public class ControllerStartseite {
 
     @FXML
     public void SWMarkierteFragen(ActionEvent event) throws IOException{
-        Parent hinzufuegenView = FXMLLoader.load(getClass().getResource("lernapp_gui_markierteFragen.fxml"));
-        Scene hinzufuegenViewScene = new Scene(hinzufuegenView);
+
+        Parent markierteFragenView = FXMLLoader.load(getClass().getResource("lernapp_gui_markierteFragen.fxml"));
+        Scene markierteFragenViewScene = new Scene(markierteFragenView);
 
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
-        window.setScene(hinzufuegenViewScene);
+        window.setScene(markierteFragenViewScene);
         window.show();
     }
 

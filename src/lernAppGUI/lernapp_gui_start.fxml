@@ -14,7 +14,7 @@
       <Label layoutX="10.0" layoutY="314.0" text="Version 1.0" textFill="#ffe555" />
       <Button fx:id="buttonSchwerpunkt" layoutX="118.0" layoutY="124.0" mnemonicParsing="false" onAction="#ButtonSchwerpunkte" prefHeight="32.0" prefWidth="130.0" text="Schwerpunkte üben" />
       <Button layoutX="118.0" layoutY="168.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="130.0" text="10 letzten Fehler" />
-      <Button fx:id="buttonMarkierteFragen" layoutX="118.0" layoutY="213.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="130.0" text="Markierte Fragen" onAction="#SWMarkierteFragen"/>
+      <Button fx:id="buttonMarkierteFragen" layoutX="118.0" layoutY="213.0" mnemonicParsing="false"  onAction="#SWMarkierteFragen" prefHeight="32.0" prefWidth="130.0" text="Markierte Fragen"/>
       <Button fx:id="buttonFragehinzufuegen" layoutX="111.0" layoutY="258.0" mnemonicParsing="false" onAction="#buttonFragehinzufuegen" prefHeight="32.0" prefWidth="147.0" text="Eigene Frage hinzufügen" />
       <Label layoutX="125.0" layoutY="31.0" text="FiSi LernApp" textFill="#ffe667">
          <font>
