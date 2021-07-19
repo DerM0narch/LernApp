@@ -48,7 +48,7 @@ public class ControllerFrageSeite {
         //textfrage.setW
         int anzahlFragen = db.selectCount();
 
-        while (fragenhash.size() < 20 || fragenhash.size() < anzahlFragen){
+        while (fragenhash.size() < 20){
             fragenhash.add(new Random().nextInt(anzahlFragen));
         }
 
@@ -77,6 +77,9 @@ public class ControllerFrageSeite {
         radio3.setText(antwortenarray[2]);
         buttonzurueck.setDisable(true);
         labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenhash.size());
+
+        System.out.println(db.selectMarkiert("Select * from fragen where id = " + fragenarray[aktuelleFrage]));
+
 
         antworthash.clear();
 
@@ -120,12 +123,19 @@ public class ControllerFrageSeite {
             radio3.setText(antwortenarray[2]);
 
             RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
-            ausgewaehlt.setSelected(false);
+            if (ausgewaehlt != null) {
+                ausgewaehlt.setSelected(false);
+            }
             radio1.setTextFill(Color.web("#ffe667"));
             radio2.setTextFill(Color.web("#ffe667"));
             radio3.setTextFill(Color.web("#ffe667"));
             buttonpruefen.setDisable(false);
+
+            System.out.println(db.selectMarkiert("Select * from fragen where id = " + fragenarray[aktuelleFrage]));
+            checkboxmakieren.setSelected(db.selectMarkiert("Select * from fragen where id = " + fragenarray[aktuelleFrage]));
+
         } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
 
         }
     }
@@ -153,16 +163,19 @@ public class ControllerFrageSeite {
             radio2.setText(antwortenarray[1]);
             radio3.setText(antwortenarray[2]);
             RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
-            ausgewaehlt.setSelected(false);
+            if (ausgewaehlt != null) {
+                ausgewaehlt.setSelected(false);
+            }
 
             radio1.setTextFill(Color.web("#ffe667"));
             radio2.setTextFill(Color.web("#ffe667"));
             radio3.setTextFill(Color.web("#ffe667"));
             buttonpruefen.setDisable(false);
 
+            checkboxmakieren.setSelected(db.selectMarkiert("Select * from fragen where id = " + fragenarray[aktuelleFrage]));
 
         } catch (NullPointerException e) {
-
+            System.out.println(e.getMessage());
         }
     }
 
@@ -183,7 +196,15 @@ public class ControllerFrageSeite {
         }
     }
 
+    public void makierenFragen(ActionEvent event) {
 
+        if (db.selectMarkiert("Select * from fragen where id= " + fragenarray[aktuelleFrage])){
+            db.execute("Update fragen set markiert = 0 where id= " + fragenarray[aktuelleFrage]);
+        } else {
+            db.execute("Update fragen set markiert = 1 where id= " + fragenarray[aktuelleFrage]);
+        }
+
+    }
 
 
 
