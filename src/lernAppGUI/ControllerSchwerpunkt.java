@@ -15,6 +15,8 @@ import java.util.Objects;
 
 public class ControllerSchwerpunkt {
 
+    private int schwerpunkt = 0;
+
     @FXML
     private Button zurueck;
 
@@ -36,5 +38,11 @@ public class ControllerSchwerpunkt {
         window.show();
     }
 
+    public void schwerpunktAuswaehlen(ActionEvent event) {
+
+        /*if (event == "buttonITSicherheit") {
+            schwerpunkt = 2;
+        }*/
+    }
 }
 
