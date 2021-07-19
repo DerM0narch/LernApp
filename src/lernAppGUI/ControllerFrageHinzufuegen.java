@@ -7,8 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lernApp.Datenbank;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -23,6 +26,12 @@ public class ControllerFrageHinzufuegen {
 
     @FXML
     private Button buttonzufaelligeFragen;
+
+    @FXML
+    private TextArea textAreaFrage;
+
+    @FXML
+    private TextField textAreaRichtig, textAreaErsteFalsch, textAreaZweiteFalsch;
 
     @FXML
     public void intitialize(){}
@@ -40,6 +49,18 @@ public class ControllerFrageHinzufuegen {
     }
 
     public void frageHinzufuegen(ActionEvent event) {
+
+        frage = textAreaFrage.getText();
+        richtig = textAreaRichtig.getText();
+        erstefalsch = textAreaErsteFalsch.getText();
+        zweitefalsch = textAreaZweiteFalsch.getText();
+
+        db.insert("Insert into 'fragen' (frage, richtig, ersteFalsch, zweiteFalsch) values ('" + frage + "', '" + richtig + "', '" + erstefalsch + "', '" + zweitefalsch + "')");
+
+        textAreaFrage.setText("");
+        textAreaRichtig.setText("");
+        textAreaErsteFalsch.setText("");
+        textAreaZweiteFalsch.setText("");
 
     }
 

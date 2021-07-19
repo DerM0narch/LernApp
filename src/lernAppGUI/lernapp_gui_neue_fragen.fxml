@@ -20,11 +20,11 @@
          </font>
       </Label>
       <Button layoutX="23.0" layoutY="301.0" mnemonicParsing="false" onAction="#zurueck" text="&lt; Zurück" />
-      <Button layoutX="232.0" layoutY="301.0" mnemonicParsing="false" text="Frage hinzufügen" />
-      <TextArea layoutX="24.0" layoutY="34.0" prefHeight="126.0" prefWidth="316.0" />
-      <TextField layoutX="90.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0" />
-      <TextField layoutX="90.0" layoutY="230.0" prefHeight="25.0" prefWidth="251.0" />
-      <TextField layoutX="90.0" layoutY="263.0" prefHeight="25.0" prefWidth="251.0" />
+      <Button layoutX="232.0" layoutY="301.0" mnemonicParsing="false" onAction="#frageHinzufuegen" text="Frage hinzufügen" />
+      <TextArea fx:id="textAreaFrage" layoutX="24.0" layoutY="34.0" prefHeight="126.0" prefWidth="316.0" />
+      <TextField fx:id="textAreaRichtig" layoutX="90.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0" />
+      <TextField fx:id="textAreaErsteFalsch" layoutX="90.0" layoutY="230.0" prefHeight="25.0" prefWidth="251.0" />
+      <TextField fx:id="textAreaZweiteFalsch" layoutX="90.0" layoutY="263.0" prefHeight="25.0" prefWidth="251.0" />
       <Label layoutX="22.0" layoutY="198.0" text="Richtige Antwort" textFill="#ffe667">
          <font>
             <Font size="14.0" />
