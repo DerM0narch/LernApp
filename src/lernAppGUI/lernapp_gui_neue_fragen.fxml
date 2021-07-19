@@ -25,17 +25,17 @@
       <TextField layoutX="90.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0" />
       <TextField layoutX="90.0" layoutY="230.0" prefHeight="25.0" prefWidth="251.0" />
       <TextField layoutX="90.0" layoutY="263.0" prefHeight="25.0" prefWidth="251.0" />
-      <Label layoutX="22.0" layoutY="198.0" text="Antwort 1" textFill="#ffe667">
+      <Label layoutX="22.0" layoutY="198.0" text="Richtige Antwort" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="233.0" text="Antwort 2" textFill="#ffe667">
+      <Label layoutX="23.0" layoutY="233.0" text="Erste falsche Antwort" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="266.0" text="Antwort 3" textFill="#ffe667">
+      <Label layoutX="24.0" layoutY="266.0" text="zweite falsche Antwort" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>

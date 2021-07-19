@@ -8,11 +8,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import lernApp.Datenbank;
 
 import java.io.IOException;
 
 
 public class ControllerFrageHinzufuegen {
+
+    Datenbank db = new Datenbank();
+    private String frage = "";
+    private String richtig = "";
+    private String erstefalsch = "";
+    private String zweitefalsch = "";
 
     @FXML
     private Button buttonzufaelligeFragen;
@@ -30,6 +37,10 @@ public class ControllerFrageHinzufuegen {
 
         window.setScene(startseiteScene);
         window.show();
+    }
+
+    public void frageHinzufuegen(ActionEvent event) {
+
     }
 
 }

@@ -66,6 +66,9 @@ public class ControllerMarkierteFrageSeite {
         radio1.setText(antwortenarray[0]);
         radio2.setText(antwortenarray[1]);
         radio3.setText(antwortenarray[2]);
+        if (aktuelleFrage == (fragenarray.length -1)) {
+            buttonweiter.setDisable(true);
+        }
         buttonzurueck.setDisable(true);
         labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
 
