@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #0068c4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerStartseite">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #36648B;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerStartseite">
    <children>
-      <Button fx:id="buttonzufaelligeFragen" layoutX="118.0" layoutY="80.0" mnemonicParsing="false" onAction="#SWZufaelligeFragen" prefHeight="32.0" prefWidth="130.0" text="Zufällige Fragen" />
+      <Button fx:id="buttonzufaelligeFragen" layoutX="111.0" layoutY="80.0" mnemonicParsing="false" onAction="#SWZufaelligeFragen" prefHeight="32.0" prefWidth="147.0" text="Zufällige Fragen" />
       <Label layoutX="10.0" layoutY="314.0" text="Version 1.0" textFill="#ffe555" />
-      <Button fx:id="buttonSchwerpunkt" layoutX="118.0" layoutY="124.0" mnemonicParsing="false" onAction="#SWSchwerpunkte" prefHeight="32.0" prefWidth="130.0" text="Schwerpunkte üben" />
-      <Button fx:id="buttonFalscheFragen" layoutX="118.0" layoutY="168.0" mnemonicParsing="false" onAction="#SWfalscheFragen" prefHeight="32.0" prefWidth="130.0" text="Falsche Fragen" />
-      <Button fx:id="buttonMarkierteFragen" layoutX="118.0" layoutY="213.0" mnemonicParsing="false" onAction="#SWMarkierteFragen" prefHeight="32.0" prefWidth="130.0" text="Markierte Fragen" />
+      <Button fx:id="buttonSchwerpunkt" layoutX="111.0" layoutY="125.0" mnemonicParsing="false" onAction="#SWSchwerpunkte" prefHeight="32.0" prefWidth="147.0" text="Schwerpunkte üben" />
+      <Button fx:id="buttonFalscheFragen" layoutX="111.0" layoutY="168.0" mnemonicParsing="false" onAction="#SWfalscheFragen" prefHeight="32.0" prefWidth="147.0" text="Falsche Fragen" />
+      <Button fx:id="buttonMarkierteFragen" layoutX="111.0" layoutY="213.0" mnemonicParsing="false" onAction="#SWMarkierteFragen" prefHeight="32.0" prefWidth="147.0" text="Markierte Fragen" />
       <Button fx:id="buttonFragehinzufuegen" layoutX="111.0" layoutY="258.0" mnemonicParsing="false" onAction="#SWFrageHinzufuegen" prefHeight="32.0" prefWidth="147.0" text="Eigene Frage hinzufügen" />
       <Label layoutX="125.0" layoutY="31.0" text="FiSi LernApp" textFill="#ffe667">
          <font>
