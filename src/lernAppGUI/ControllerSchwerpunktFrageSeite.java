@@ -67,9 +67,9 @@ public class ControllerSchwerpunktFrageSeite {
 
 
         textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-        radio1.setText(antwortenarray[0]);
-        radio2.setText(antwortenarray[1]);
-        radio3.setText(antwortenarray[2]);
+        radio1.setText(zeilenUmbruch(antwortenarray[0]));
+        radio2.setText(zeilenUmbruch(antwortenarray[1]));
+        radio3.setText(zeilenUmbruch(antwortenarray[2]));
         if (aktuelleFrage == (fragenarray.length -1)) {
             buttonweiter.setDisable(true);
         }
@@ -125,9 +125,9 @@ public class ControllerSchwerpunktFrageSeite {
 
 
             textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-            radio1.setText(antwortenarray[0]);
-            radio2.setText(antwortenarray[1]);
-            radio3.setText(antwortenarray[2]);
+            radio1.setText(zeilenUmbruch(antwortenarray[0]));
+            radio2.setText(zeilenUmbruch(antwortenarray[1]));
+            radio3.setText(zeilenUmbruch(antwortenarray[2]));
 
             RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
             if (ausgewaehlt != null) {
@@ -169,9 +169,9 @@ public class ControllerSchwerpunktFrageSeite {
                 buttonzurueck.setDisable(true); ;
             }
             textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
-            radio1.setText(antwortenarray[0]);
-            radio2.setText(antwortenarray[1]);
-            radio3.setText(antwortenarray[2]);
+            radio1.setText(zeilenUmbruch(antwortenarray[0]));
+            radio2.setText(zeilenUmbruch(antwortenarray[1]));
+            radio3.setText(zeilenUmbruch(antwortenarray[2]));
             RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
             if (ausgewaehlt != null) {
                 ausgewaehlt.setSelected(false);
@@ -228,6 +228,19 @@ public class ControllerSchwerpunktFrageSeite {
 
     public void setSchwerpunkt(String schwerpunkt) {
         this.schwerpunkt = schwerpunkt;
+    }
+
+    /**
+     * fügt einen Zeilenumbruch in einen zu langen String
+     * @param antwort ist String aus der Datenbank kommt
+     * @return gibt String zurück
+     */
+    public String zeilenUmbruch(String antwort){
+        if (antwort.length() > 59) {
+            String result = antwort.substring(0, 59) + "-\n" + antwort.substring(59);
+            return result;
+        }
+        return antwort;
     }
 
 }

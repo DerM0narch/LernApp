@@ -41,7 +41,6 @@ class ControllerStartseite {
     + SWMarkierteFragen()
     + SWFrageHinzufuegen()
     + SWHilfe()
-    +
 }
 
 class ControllerFrageseite {
@@ -56,6 +55,7 @@ class ControllerFrageseite {
     + vorherigeFrage()
     + markierenFrage()
     + zureuck()
+    + zeilenUmbruch()
 }
 
 class ControllerSchwerpunkt{
@@ -95,6 +95,7 @@ class ControllerflascheFrageSeite{
     + vorherigeFrage()
     + antwortPruefen()
     + markierenFragen()
+    + zeilenUmbruch()
 }
 
 class ControllerMarkierteFrageSeite{
@@ -110,6 +111,7 @@ class ControllerMarkierteFrageSeite{
     + vorherigeFrage()
     + antwortPruefen()
     + markierenFragen()
+    + zeilenUmbruch()
 }
 
 class ControllerSchwerpunktFrageSeite{
@@ -126,6 +128,7 @@ class ControllerSchwerpunktFrageSeite{
     + antwortPruefen()
     + markierenFragen()
     + setSchwerpunkt()
+    + zeilenUmbruch()
 }
 
 
