@@ -6,6 +6,8 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
@@ -20,35 +22,43 @@
       <Button fx:id="buttonzurueck" layoutX="23.0" layoutY="297.0" mnemonicParsing="false" onAction="#vorherigeFrage" text="&lt; Zurück" />
       <Button fx:id="buttonweiter" layoutX="573.0" layoutY="297.0" mnemonicParsing="false" onAction="#naechsteFrage" text="Weiter &gt;" />
       <Button fx:id="buttonpruefen" layoutX="299.0" layoutY="297.0" mnemonicParsing="false" onAction="#antwortPruefen" text="prüfen" />
-      <RadioButton fx:id="radio1" layoutX="49.0" layoutY="183.0" mnemonicParsing="false" textFill="#ffe667">
+      <RadioButton fx:id="radio1" layoutX="49.0" layoutY="183.0" mnemonicParsing="false" textFill="#ffe667" wrapText="true">
          <toggleGroup>
             <ToggleGroup fx:id="antworten" />
          </toggleGroup>
          <font>
             <Font size="14.0" />
          </font></RadioButton>
-      <RadioButton fx:id="radio2" layoutX="49.0" layoutY="215.0" mnemonicParsing="false" textFill="#ffe667" toggleGroup="$antworten">
+      <RadioButton fx:id="radio2" layoutX="49.0" layoutY="219.0" mnemonicParsing="false" textFill="#ffe667" toggleGroup="$antworten" wrapText="true">
          <font>
             <Font size="14.0" />
          </font></RadioButton>
-      <RadioButton fx:id="radio3" layoutX="50.0" layoutY="244.0" mnemonicParsing="false" textFill="#ffe667" toggleGroup="$antworten">
+      <RadioButton fx:id="radio3" layoutX="49.0" layoutY="254.0" mnemonicParsing="false" textFill="#ffe667" toggleGroup="$antworten" wrapText="true">
          <font>
             <Font size="14.0" />
          </font></RadioButton>
-      <CheckBox fx:id="checkboxmakieren" layoutX="527.0" layoutY="44.0" mnemonicParsing="false" onAction="#makierenFragen" text="Frage markieren" textFill="#ffe667" />
+      <CheckBox fx:id="checkboxmakieren" layoutX="393.0" layoutY="44.0" mnemonicParsing="false" onAction="#makierenFragen" text="Frage markieren" textFill="#ffe667" />
       <Label layoutX="49.0" layoutY="154.0" text="Antwort" textFill="#ffe667">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="buttonabbrechen" layoutX="573.0" layoutY="11.0" mnemonicParsing="false" onAction="#zurueck" prefHeight="17.0" prefWidth="62.0" text="Abbrechen">
+      <Button fx:id="buttonabbrechen" layoutX="589.0" layoutY="13.0" mnemonicParsing="false" onAction="#zurueck" prefHeight="38.0" prefWidth="39.0" text="Abbrechen">
          <font>
             <Font size="9.0" />
          </font>
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="@../../res/images/lernapp_homebutton.png" />
+               </source>
+            </ImageInput>
+         </effect>
       </Button>
-      <TextArea fx:id="textfrage" editable="false" layoutX="47.0" layoutY="65.0" prefHeight="79.0" prefWidth="454.0" wrapText="true">
+      <TextArea fx:id="textfrage" editable="false" layoutX="47.0" layoutY="67.0" prefHeight="79.0" prefWidth="454.0" wrapText="true">
          <font>
             <Font size="15.0" />
          </font></TextArea>
+      <Button layoutX="563.0" layoutY="19.0" mnemonicParsing="false" onAction="#zurueck" text="Abbrechen" />
    </children>
 </Pane>

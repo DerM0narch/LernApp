@@ -49,7 +49,7 @@ public class ControllerSchwerpunktFrageSeite {
         /*ControllerSchwerpunkt schwerpunkt = new ControllerSchwerpunkt();
         System.out.println(schwerpunkt.getSchwerpunkt()); */
         fragenarray = db.schwerpunktFragen(schwerpunkt);
-        System.out.println(fragenarray.length);
+        //System.out.println(fragenarray.length);
 
         /*for (int i = 0; i < fragenarray.length; i++){
             System.out.println(fragenarray[i]);
@@ -226,10 +226,6 @@ public class ControllerSchwerpunktFrageSeite {
 
     }
 
-    public void setSchwerpunkt(String schwerpunkt) {
-        this.schwerpunkt = schwerpunkt;
-    }
-
     /**
      * fügt einen Zeilenumbruch in einen zu langen String
      * @param antwort ist String aus der Datenbank kommt
@@ -243,4 +239,7 @@ public class ControllerSchwerpunktFrageSeite {
         return antwort;
     }
 
+    public void setSchwerpunkt(String schwerpunkt) {
+        this.schwerpunkt = schwerpunkt;
+    }
 }

@@ -67,7 +67,6 @@ public class ControllerSchwerpunkt {
         Scene schwerpunktViewScene = new Scene(schwerpunktView);
         //System.out.println(schwerpunktView);
         ControllerSchwerpunktFrageSeite schwerpunktFrageSeite = (ControllerSchwerpunktFrageSeite) loader.getController();
-        System.out.println("in Schwerpunkt" + schwerpunkt);
         schwerpunktFrageSeite.setSchwerpunkt(schwerpunkt);
         schwerpunktFrageSeite.manuellInitialisation();
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();

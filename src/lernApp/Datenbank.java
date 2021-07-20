@@ -293,7 +293,6 @@ public class Datenbank {
      */
     public Integer[] schwerpunktFragen(String schwerpunkt) {
         try {
-            System.out.println("hi " + schwerpunkt);
             Set<Integer> schwerpunktFragenHash = new LinkedHashSet<Integer>();
             Integer[] SchwerpunktFragenArray;
             Class.forName("org.sqlite.JDBC");
