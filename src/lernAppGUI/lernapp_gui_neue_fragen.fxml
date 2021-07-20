@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="448.0" style="-fx-background-color: #51a1e4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerFrageHinzufuegen">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="448.0" style="-fx-background-color: #36648B;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerFrageHinzufuegen">
    <children>
       <Label layoutX="22.0" layoutY="9.0" text="Frage" textFill="#ffe667">
          <font>
