@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="366.0" style="-fx-background-color: #0068c4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerFrageHinzufuegen">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="448.0" style="-fx-background-color: #51a1e4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerFrageHinzufuegen">
    <children>
       <Label layoutX="22.0" layoutY="9.0" text="Frage" textFill="#ffe667">
          <font>
@@ -19,26 +20,27 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="23.0" layoutY="301.0" mnemonicParsing="false" onAction="#zurueck" text="&lt; Zurück" />
-      <Button layoutX="232.0" layoutY="301.0" mnemonicParsing="false" text="Frage hinzufügen" />
-      <TextArea layoutX="24.0" layoutY="34.0" prefHeight="126.0" prefWidth="316.0" />
-      <TextField layoutX="90.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0" />
-      <TextField layoutX="90.0" layoutY="230.0" prefHeight="25.0" prefWidth="251.0" />
-      <TextField layoutX="90.0" layoutY="263.0" prefHeight="25.0" prefWidth="251.0" />
-      <Label layoutX="22.0" layoutY="198.0" text="Antwort 1" textFill="#ffe667">
+      <Button layoutX="17.0" layoutY="399.0" mnemonicParsing="false" onAction="#zurueck" text="&lt; Zurück" />
+      <Button fx:id="buttonFrageHinzufuegen" layoutX="314.0" layoutY="399.0" mnemonicParsing="false" onAction="#frageHinzufuegen" text="Frage hinzufügen" />
+      <TextArea fx:id="textAreaFrage" layoutX="24.0" layoutY="34.0" prefHeight="126.0" prefWidth="397.0" />
+      <TextField fx:id="textAreaRichtig" layoutX="172.0" layoutY="196.0" prefHeight="25.0" prefWidth="251.0" />
+      <TextField fx:id="textAreaErsteFalsch" layoutX="172.0" layoutY="231.0" prefHeight="25.0" prefWidth="251.0" />
+      <TextField fx:id="textAreaZweiteFalsch" layoutX="172.0" layoutY="264.0" prefHeight="25.0" prefWidth="251.0" />
+      <Label layoutX="22.0" layoutY="198.0" text="Richtige Antwort" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="233.0" text="Antwort 2" textFill="#ffe667">
+      <Label layoutX="23.0" layoutY="233.0" text="Erste falsche Antwort" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="266.0" text="Antwort 3" textFill="#ffe667">
+      <Label layoutX="24.0" layoutY="266.0" text="zweite falsche Antwort" textFill="#ffe667">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <ComboBox fx:id="comboboxSchwerpunkt" layoutX="22.0" layoutY="305.0" onAction="#hinzufuegenAktivieren" prefHeight="25.0" prefWidth="182.0" promptText="Schwerpunkt wählen" />
    </children>
 </Pane>
