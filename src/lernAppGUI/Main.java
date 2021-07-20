@@ -25,7 +25,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("lernapp_gui_start.fxml")));
         primaryStage.setTitle("FiSi LernApp v1.0");
-        primaryStage.getIcons().add(new Image("file:src/GUI/images/lernapp_icon.png"));
+        primaryStage.getIcons().add(new Image("file:@../../res/images/lernapp_icon.png"));
         primaryStage.setScene(new Scene(root, 366, 336));
         primaryStage.setResizable(false);
         primaryStage.show();

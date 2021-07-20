@@ -17,9 +17,9 @@ class DatenbankTest {
         Datenbank db = new Datenbank();
         assertEquals(db.selectId("SELECT * FROM fragen WHERE ID = 1"), 1);
         assertEquals(db.selectFrage("SELECT * FROM fragen WHERE ID = 1"), "Welche ist die sicherste WLAN-Verschlüsselung?");
-        assertEquals(db.selectRichtig("SELECT * FROM fragen WHERE ID = 1"), "WPA2");
-        assertEquals(db.selectErsteFalsch("SELECT * FROM fragen WHERE ID = 1"), "WEP");
-        assertEquals(db.selectZweiteFalsch("SELECT * FROM fragen WHERE ID = 1"), "WPA");
+        assertEquals(db.selectRichtig("SELECT * FROM fragen WHERE ID = 1"), "WPA2 (Wi-Fi Protected Access 2)");
+        assertEquals(db.selectErsteFalsch("SELECT * FROM fragen WHERE ID = 1"), "WEP (Wired Equivalent Privacy)");
+        assertEquals(db.selectZweiteFalsch("SELECT * FROM fragen WHERE ID = 1"), "WPA (Wi-Fi Protected Access)");
         assertFalse(db.selectMarkiert("SELECT * FROM fragen WHERE ID = 1"));
     }
 }

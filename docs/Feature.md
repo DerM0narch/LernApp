@@ -16,3 +16,4 @@
 >- Desktop-Programm in Smartphone-App umwandeln <br>
 >- Statistik über wie viele falsch etc <br>
 >- für Andreas ne hübschere Markierung der Fragen ;)
+>- Schwerpunkt hinzufügen können COULD
