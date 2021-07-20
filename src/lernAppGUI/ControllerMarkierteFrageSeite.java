@@ -66,6 +66,7 @@ public class ControllerMarkierteFrageSeite {
 
 
         textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
+        System.out.println(antwortenarray[0] + antwortenarray[1] + antwortenarray[2]);
         radio1.setText(antwortenarray[0]);
         radio2.setText(antwortenarray[1]);
         radio3.setText(antwortenarray[2]);
