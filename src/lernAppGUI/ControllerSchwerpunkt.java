@@ -25,10 +25,11 @@ public class ControllerSchwerpunkt {
     @FXML
     public void intitialize(){}
 
-    public void clickButton(){
-        System.out.println("Knopf gedürckt");
-    }
-
+    /**
+     * ermöglicht zurück auf Startseite
+     * @param event Knopf wird gedrückt
+     * @throws IOException wenn die datei nicht gefunden wird
+     */
     public void zurueck(ActionEvent event) throws IOException {
 
         Parent startseite = FXMLLoader.load(getClass().getResource("lernapp_gui_start.fxml"));
@@ -40,6 +41,13 @@ public class ControllerSchwerpunkt {
         window.show();
     }
 
+    /**
+     * jenachdem welcher Knopfgedrück wird, wird schwerpunkt festgelegt und an den nächsten Controller übergeben
+     * neue Seite wird aufgerufen
+     *
+     * @param event Knopfdruck
+     * @throws IOException wenn Seite nicht gefunden ist
+     */
     public void schwerpunktAuswaehlen(ActionEvent event) throws IOException {
 
         if ((Button) event.getSource() == buttonNetzwerktechnik) {

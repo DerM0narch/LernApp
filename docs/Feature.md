@@ -8,7 +8,7 @@
 >##Should
 >- Fragen markieren und die markierten Fragen anzeigen <br>
 >- Schwerpunkte auswählen <br>
->- 10 letzte falsche Fragen anzeigen lassen <br>
+>- letzte falsche Fragen anzeigen lassen <br>
 >- Eigene Fragen hinzufügen <br>
 >- Logo wieder hinzufügen
  

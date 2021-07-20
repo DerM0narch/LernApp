@@ -42,6 +42,9 @@ public class ControllerSchwerpunktFrageSeite {
     @FXML
     private ToggleGroup antworten;
 
+    /**
+     * initializiert Fragenliste, Frage, Antworten
+     */
     public void manuellInitialisation(){
         /*ControllerSchwerpunkt schwerpunkt = new ControllerSchwerpunkt();
         System.out.println(schwerpunkt.getSchwerpunkt()); */
@@ -80,7 +83,11 @@ public class ControllerSchwerpunktFrageSeite {
 
     }
 
-
+    /**
+     * ermöglicht zurück auf Startseite
+     * @param event Knopf wird gedrückt
+     * @throws IOException wenn die datei nicht gefunden wird
+     */
     @FXML
     public void zurueck(ActionEvent event) throws IOException {
 
@@ -93,6 +100,10 @@ public class ControllerSchwerpunktFrageSeite {
         window.show();
     }
 
+    /**
+     * neue Frage + Antworten werden geladen, in der fragenliste eine stelle weiter
+     * @param event Knopfdruck
+     */
     public void naechsteFrage(ActionEvent event) {
         try {
             ++aktuelleFrage;
@@ -135,6 +146,10 @@ public class ControllerSchwerpunktFrageSeite {
         }
     }
 
+    /**
+     * vorherige Frage + Antworten werden geladen, in der fragenliste eine stelle zurück
+     * @param event Knopfdruck
+     */
     public void vorherigeFrage(ActionEvent event) {
         try {
             --aktuelleFrage;
@@ -174,6 +189,10 @@ public class ControllerSchwerpunktFrageSeite {
         }
     }
 
+    /**
+     * Prüft ob die angegebene Antwort die richtige ist, verändert ggf. Wert in db
+     * @param event Knopfdruck
+     */
     public void antwortPruefen(ActionEvent event) {
         try {
             RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
@@ -193,6 +212,10 @@ public class ControllerSchwerpunktFrageSeite {
         }
     }
 
+    /**
+     * verändert den Wert "markiert" in Datenbank
+     * @param event Knopfdruck
+     */
     public void makierenFragen(ActionEvent event) {
 
         if (db.selectMarkiert("Select * from fragen where id= " + fragenarray[aktuelleFrage])){
@@ -206,24 +229,5 @@ public class ControllerSchwerpunktFrageSeite {
     public void setSchwerpunkt(String schwerpunkt) {
         this.schwerpunkt = schwerpunkt;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

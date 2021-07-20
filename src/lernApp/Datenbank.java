@@ -3,6 +3,8 @@ package lernApp;
 import lernAppGUI.ControllerSchwerpunkt;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -247,6 +249,13 @@ public class Datenbank {
         return count;
     }
 
+    /**
+     *
+     * wählt alle Fragen die makiert wurden aus
+     *
+     * @return Liste von IDs der makierten Fragen
+     */
+
     public Integer[] markierteFragen() {
         try {
             Set<Integer> markierteFragenHash = new LinkedHashSet<Integer>();
@@ -276,6 +285,12 @@ public class Datenbank {
         return new Integer[]{0};
     }
 
+    /**
+     *
+     * @param schwerpunkt verwendet um Fragen nach diesem Schwerpunkt zu suchen
+     *
+     * @return Liste von IDs der Fragen zum schwerpunkt
+     */
     public Integer[] schwerpunktFragen(String schwerpunkt) {
         try {
             System.out.println("hi " + schwerpunkt);
@@ -308,6 +323,11 @@ public class Datenbank {
         return new Integer[]{0};
     }
 
+    /**
+     * wählt Fragen aus die falsch beantwortet wurden
+     *
+     * @return Liste von IDs der Fragen zum schwerpunkt
+     */
     public Integer[] falscheFragen() {
         try {
             Set<Integer> falscheFragenHash = new LinkedHashSet<Integer>();
@@ -337,6 +357,10 @@ public class Datenbank {
         return new Integer[]{0};
     }
 
+    /**
+     * ermittelt wie viele falsche Fragen in der db sind
+     * @return count Anzahl von falschen Fragen
+     */
     public int Countfalsche() {
         int count = 0;
         try {
@@ -358,6 +382,10 @@ public class Datenbank {
         return count;
     }
 
+    /**
+     * ermittelt wie viele markierten Fragen in der db sind
+     * @return count Anzahl von markierten Fragen
+     */
     public int countMarkiert() {
         int count = 0;
         try {
@@ -378,4 +406,33 @@ public class Datenbank {
         }
         return count;
     }
+
+    /**
+     * Ermittelt alle IDs aus der db, fügt diese in eine ArrayList
+     * @return allIDs, Liste mit allen IDs
+     */
+    public ArrayList<Integer> selectAllFragenIDs() {
+
+        ArrayList <Integer> allIDs = new ArrayList<Integer>();
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select id from fragen");
+            for (int i = 0; rs.next(); i++) {
+                allIDs.add(rs.getInt("id"));
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+            return allIDs;
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        return allIDs;
+    }
+
 }

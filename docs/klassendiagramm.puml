@@ -1,16 +1,6 @@
 @startuml klassendiagramm
 
 frame LernApp{
-class Frage {
-    - fragestellung : String
-    - antworten: String[]
-    - markiert: boolean
-}
-
-class Schwerpunkt {
-    - fragen : Frage[]
-    - schwerpunkt : String
-}
 
 class Datenbank {
     - c : Connection
@@ -25,6 +15,13 @@ class Datenbank {
     + selectErsteFalsch()
     + selectZweiteFalsch()
     + selectMarkiert()
+    + selectCount()
+    + markierteFragen()
+    + schwerpunktFragen()
+    + falscheFragen()
+    + countfalsche()
+    + countMarkiert()
+    + selectAllFragenIDs()
 }
 
 }
@@ -36,11 +33,15 @@ class Main {
     + start() : void
 }
 class ControllerStartseite {
+    --
+    + initialize()
     + SWZufaelligeFragen()
-    + SWSchwerpunktwaehlen()
-    + SWLetzeZehnFehler()
+    + SWSchwerpunkte()
+    + SWfalscheFragen()
     + SWMarkierteFragen()
     + SWFrageHinzufuegen()
+    + SWHilfe()
+    +
 }
 
 class ControllerFrageseite {
@@ -54,22 +55,21 @@ class ControllerFrageseite {
     + naechsteFrage()
     + vorherigeFrage()
     + markierenFrage()
-    + frageAnzeigeAktualisieren()
     + zureuck()
 }
 
 class ControllerSchwerpunkt{
+    - db : Datenbank
+    - schwerpunkt : String
     --
-    + schwerpunktNetzwerk()
-    + schwerpunktHardware()
-    + schwerpunktSoftware()
-    + schwerpunktITSicherheit()
+    + schwerpunktAuswaehlen()
     + zurueck()
+    + getSchwerpunkt()
 }
 
 class ControllerFragehinzufuegen{
     - frage : String
-    - antwort1 : String
+    - richtig : String
     - antwort2 : String
     - antwort3 : String
     --
@@ -82,6 +82,52 @@ class ControllerHilfe{
     + zurueck()
 }
 
+class ControllerflascheFrageSeite{
+    - db : Datenbank
+    - fragenarray : Integer[]
+    - aktuelleFrage : int = 0
+    - antworthash : ArrayList<String>
+    - antwortenarray : String
+    --
+    + initialize()
+    + zurueck()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + antwortPruefen()
+    + markierenFragen()
 }
+
+class ControllerMarkierteFrageSeite{
+    - db : Datenbank
+    - fragenarray : Integer[]
+    - aktuelleFrage : int = 0
+    - antworthash : ArrayList<String>
+    - antwortenarray : String
+    --
+    + initialize()
+    + zurueck()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + antwortPruefen()
+    + markierenFragen()
+}
+
+class ControllerSchwerpunktFrageSeite{
+    - db : Datenbank
+    - fragenarray : Integer[]
+    - aktuelleFrage : int = 0
+    - antworthash : ArrayList<String>
+    - antwortenarray : String
+    --
+    + manuellInitialisation()
+    + zurueck()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + antwortPruefen()
+    + markierenFragen()
+    + setSchwerpunkt()
+}
+
+
 
 @enduml

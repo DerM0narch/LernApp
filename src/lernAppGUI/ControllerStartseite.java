@@ -19,7 +19,9 @@ public class ControllerStartseite {
     @FXML
     private Button buttonFalscheFragen, buttonMarkierteFragen;
 
-
+    /**
+     * initialisiert funktion von Knöpfen
+     */
     @FXML
     public void initialize(){
 
@@ -33,7 +35,12 @@ public class ControllerStartseite {
 
     }
 
-// Button: Zufällige Fragen
+    /**
+     * wechselt view
+     * @param event Knopfdruck
+     * @throws IOException
+     */
+    // Button: Zufällige Fragen
     public void SWZufaelligeFragen(ActionEvent event) throws IOException {
 
         Parent fragenView = FXMLLoader.load(getClass().getResource("lernapp_gui_fragen.fxml"));
@@ -45,10 +52,14 @@ public class ControllerStartseite {
         window.show();
     }
 
-
+    /**
+     * wechselt view
+     * @param event Knopfdruck
+     * @throws IOException
+     */
     // Button: Hilfe
     @FXML
-    public void HilfeButton(ActionEvent event) throws IOException {
+    public void SWHilfe(ActionEvent event) throws IOException {
 
         Parent hilfeView = FXMLLoader.load(getClass().getResource("lernapp_gui_hilfe.fxml"));
         Scene hilfeViewScene = new Scene(hilfeView);
@@ -59,10 +70,14 @@ public class ControllerStartseite {
         window.show();
     }
 
-
-// Button: Schwerpunkte
+    /**
+     * wechselt view
+     * @param event Knopfdruck
+     * @throws IOException
+     */
+    // Button: Schwerpunkte
     @FXML
-    public void ButtonSchwerpunkte(ActionEvent event) throws IOException {
+    public void SWSchwerpunkte(ActionEvent event) throws IOException {
 
         Parent hilfeView = FXMLLoader.load(getClass().getResource("lernapp_gui_schwerpunkte.fxml"));
         Scene hilfeViewScene = new Scene(hilfeView);
@@ -74,9 +89,14 @@ public class ControllerStartseite {
 
     }
 
+    /**
+     * wechselt view
+     * @param event Knopfdruck
+     * @throws IOException
+     */
     // Button: Fragen hinzufügen
     @FXML
-    public void buttonFragehinzufuegen(ActionEvent event) throws IOException {
+    public void SWFrageHinzufuegen(ActionEvent event) throws IOException {
 
         Parent hinzufuegenView = FXMLLoader.load(getClass().getResource("lernapp_gui_neue_fragen.fxml"));
         Scene hinzufuegenViewScene = new Scene(hinzufuegenView);
@@ -87,6 +107,12 @@ public class ControllerStartseite {
         window.show();
     }
 
+    /**
+     * wechselt view
+     * @param event Knopfdruck
+     * @throws IOException
+     */
+    // Button Markierte Fragen
     @FXML
     public void SWMarkierteFragen(ActionEvent event) throws IOException{
 
@@ -99,6 +125,12 @@ public class ControllerStartseite {
         window.show();
     }
 
+    /**
+     * wechselt view
+     * @param event Knopfdruck
+     * @throws IOException
+     */
+    // Button Falsche Fragen
     @FXML
     public void SWfalscheFragen(ActionEvent event) throws IOException{
 

@@ -11,6 +11,11 @@ import java.io.IOException;
 
 public class ControllerHilfe {
 
+    /**
+     * ermöglicht zurück auf Startseite
+     * @param event Knopf wird gedrückt
+     * @throws IOException wenn die datei nicht gefunden wird
+     */
     @FXML
     public void zurueck(ActionEvent event) throws IOException {
 
@@ -22,4 +27,5 @@ public class ControllerHilfe {
         window.setScene(startViewScene);
         window.show();
     }
+
 }

@@ -41,6 +41,9 @@ public class ControllerFrageHinzufuegen {
     @FXML
     private ComboBox comboboxSchwerpunkt;
 
+    /**
+     * initialisiert die Combobox, disabled den hinzufügen Knopf
+     */
     @FXML
     public void initialize(){
 
@@ -51,6 +54,11 @@ public class ControllerFrageHinzufuegen {
 
     }
 
+    /**
+     * ermöglicht zurück auf Startseite
+     * @param event Knopf wird gedrückt
+     * @throws IOException wenn die datei nicht gefunden wird
+     */
     @FXML
     public void zurueck(ActionEvent event) throws IOException {
 
@@ -63,11 +71,17 @@ public class ControllerFrageHinzufuegen {
         window.show();
     }
 
+    /**
+     * aktiviert den hinzufügen Knopf
+     */
     public void hinzufuegenAktivieren (){
         buttonFrageHinzufuegen.setDisable(false);
     }
 
-
+    /**
+     * ermittelt alle eingegebenen Daten, fügt diese der db hinzu, setzt alle Felder zurück
+     * @param event Knopfdruck
+     */
     public void frageHinzufuegen(ActionEvent event) {
 
         frage = textAreaFrage.getText();

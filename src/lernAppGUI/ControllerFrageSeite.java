@@ -43,14 +43,24 @@ public class ControllerFrageSeite {
     @FXML
     private ToggleGroup antworten;
 
+    /**
+     * initializiert Fragenliste, Frage, Antworten
+     */
     @FXML
     public void initialize(){
         //textfrage.setW
         int anzahlFragen = db.selectCount();
 
-        while (fragenhash.size() < 20){
-            fragenhash.add(new Random().nextInt(anzahlFragen));
+        ArrayList<Integer> allIDs = db.selectAllFragenIDs();
+
+        Collections.shuffle(allIDs);
+
+        for (int i = 0; i < 20; i++) {
+            fragenhash.add(allIDs.get(i));
         }
+        /* while (fragenhash.size() < 20){
+            fragenhash.add(new Random().nextInt(anzahlFragen));
+        } */
 
         fragenarray = new Integer[fragenhash.size()];
         fragenarray = fragenhash.toArray(fragenarray);
@@ -85,7 +95,11 @@ public class ControllerFrageSeite {
 
     }
 
-
+    /**
+     * ermöglicht zurück auf Startseite
+     * @param event Knopf wird gedrückt
+     * @throws IOException wenn die datei nicht gefunden wird
+     */
     @FXML
     public void zurueck(ActionEvent event) throws IOException {
 
@@ -98,6 +112,10 @@ public class ControllerFrageSeite {
         window.show();
     }
 
+    /**
+     * neue Frage + Antworten werden geladen, in der fragenliste eine stelle weiter
+     * @param event Knopfdruck
+     */
     public void naechsteFrage(ActionEvent event) {
         try {
             ++aktuelleFrage;
@@ -139,6 +157,10 @@ public class ControllerFrageSeite {
         }
     }
 
+    /**
+     * vorherige Frage + Antworten werden geladen, in der fragenliste eine stelle zurück
+     * @param event Knopfdruck
+     */
     public void vorherigeFrage(ActionEvent event) {
         try {
             --aktuelleFrage;
@@ -178,6 +200,10 @@ public class ControllerFrageSeite {
         }
     }
 
+    /**
+     * Prüft ob die angegebene Antwort die richtige ist, verändert ggf. Wert in db
+     * @param event Knopfdruck
+     */
     public void antwortPruefen(ActionEvent event) {
         try {
             RadioButton ausgewaehlt = (RadioButton) antworten.getSelectedToggle();
@@ -197,7 +223,10 @@ public class ControllerFrageSeite {
         }
     }
 
-
+    /**
+     * verändert den Wert "markiert" in Datenbank
+     * @param event Knopfdruck
+     */
     public void makierenFragen(ActionEvent event) {
 
         if (db.selectMarkiert("Select * from fragen where id= " + fragenarray[aktuelleFrage])){
