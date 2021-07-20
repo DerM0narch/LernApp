@@ -255,7 +255,6 @@ public class Datenbank {
      *
      * @return Liste von IDs der makierten Fragen
      */
-
     public Integer[] markierteFragen() {
         try {
             Set<Integer> markierteFragenHash = new LinkedHashSet<Integer>();
