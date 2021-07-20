@@ -15,14 +15,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ControllerSchwerpunktFrageSeite {
+public class ControllerfalscheFrageSeite {
 
     private Datenbank db = new Datenbank();
     private Integer[] fragenarray;
     private int aktuelleFrage = 0;
     private ArrayList<String> antworthash = new ArrayList<String>();
     private String[] antwortenarray;
-    private String schwerpunkt;
 
     @FXML
     private Button buttonabbrechen, buttonweiter, buttonpruefen, buttonzurueck;
@@ -42,11 +41,12 @@ public class ControllerSchwerpunktFrageSeite {
     @FXML
     private ToggleGroup antworten;
 
-    public void manuellInitialisation(){
-        /*ControllerSchwerpunkt schwerpunkt = new ControllerSchwerpunkt();
-        System.out.println(schwerpunkt.getSchwerpunkt()); */
-        fragenarray = db.schwerpunktFragen(schwerpunkt);
-        System.out.println(fragenarray.length);
+    @FXML
+    public void initialize(){
+
+
+        fragenarray = db.falscheFragen();
+
 
         /*for (int i = 0; i < fragenarray.length; i++){
             System.out.println(fragenarray[i]);
@@ -67,7 +67,7 @@ public class ControllerSchwerpunktFrageSeite {
         radio1.setText(antwortenarray[0]);
         radio2.setText(antwortenarray[1]);
         radio3.setText(antwortenarray[2]);
-        if (aktuelleFrage == (fragenarray.length -1)) {
+        if (aktuelleFrage > (fragenarray.length - 2)) {
             buttonweiter.setDisable(true);
         }
         buttonzurueck.setDisable(true);
@@ -96,9 +96,6 @@ public class ControllerSchwerpunktFrageSeite {
     public void naechsteFrage(ActionEvent event) {
         try {
             ++aktuelleFrage;
-            if (aktuelleFrage > (fragenarray.length - 2)){
-                buttonweiter.setDisable(true);
-            }
             buttonzurueck.setDisable(false);
             labelAnzeige.setText("Frage " + (aktuelleFrage + 1) + " von " + fragenarray.length);
             antworthash.clear();
@@ -111,7 +108,9 @@ public class ControllerSchwerpunktFrageSeite {
             antwortenarray = new String[antworthash.size()];
             antwortenarray = antworthash.toArray(antwortenarray);
 
-
+            if (aktuelleFrage > (fragenarray.length - 2)){
+                buttonweiter.setDisable(true); ;
+            }
 
             textfrage.setText(db.selectFrage("SELECT * from fragen where id= " + fragenarray[aktuelleFrage]));
             radio1.setText(antwortenarray[0]);
@@ -203,9 +202,7 @@ public class ControllerSchwerpunktFrageSeite {
 
     }
 
-    public void setSchwerpunkt(String schwerpunkt) {
-        this.schwerpunkt = schwerpunkt;
-    }
+
 
 
 

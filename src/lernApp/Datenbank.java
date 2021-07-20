@@ -308,6 +308,74 @@ public class Datenbank {
         return new Integer[]{0};
     }
 
+    public Integer[] falscheFragen() {
+        try {
+            Set<Integer> falscheFragenHash = new LinkedHashSet<Integer>();
+            Integer[] falscheFragenArray;
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
 
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from fragen where istfalsch = 1");
+            while (rs.next()) {
+                falscheFragenHash.add(rs.getInt("id"));
+            }
+            falscheFragenArray = new Integer[falscheFragenHash.size()];
+            falscheFragenArray = falscheFragenHash.toArray(falscheFragenArray);
 
+            rs.close();
+            stmt.close();
+            c.close();
+
+            return falscheFragenArray;
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+
+        return new Integer[]{0};
+    }
+
+    public int Countfalsche() {
+        int count = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select count(*) as total from fragen where istfalsch = 1");
+            count = rs.getInt("total");
+
+            rs.close();
+            stmt.close();
+            c.close();
+            return count;
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        return count;
+    }
+
+    public int countMarkiert() {
+        int count = 0;
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection(URL);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("select count(*) as total from fragen where markiert = 1");
+            count = rs.getInt("total");
+
+            rs.close();
+            stmt.close();
+            c.close();
+            return count;
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        return count;
+    }
 }

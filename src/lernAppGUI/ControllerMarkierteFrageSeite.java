@@ -179,8 +179,10 @@ public class ControllerMarkierteFrageSeite {
 
             if (antwort.equals(db.selectRichtig("SELECT * from fragen where id= "+ fragenarray[aktuelleFrage]))) {
                 ausgewaehlt.setTextFill(Color.web("#00FF00"));
+                db.execute("Update fragen set istfalsch = 0 where id = " + fragenarray[aktuelleFrage]);
             } else {
                 ausgewaehlt.setTextFill(Color.web("#FF0000"));
+                db.execute("Update fragen set istfalsch = 1 where id = " + fragenarray[aktuelleFrage]);
             }
 
             buttonpruefen.setDisable(true);
