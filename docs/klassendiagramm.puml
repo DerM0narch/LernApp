@@ -1,0 +1,136 @@
+@startuml klassendiagramm
+
+frame LernApp{
+
+class Datenbank {
+    - c : Connection
+    - stmt : Statement
+    - URL : final String
+    --
+    + execute()
+    + insert()
+    + selectId()
+    + selectFrage()
+    + selectRichtig()
+    + selectErsteFalsch()
+    + selectZweiteFalsch()
+    + selectMarkiert()
+    + selectCount()
+    + markierteFragen()
+    + schwerpunktFragen()
+    + falscheFragen()
+    + countfalsche()
+    + countMarkiert()
+    + selectAllFragenIDs()
+}
+
+}
+
+frame LernAppGUI {
+
+class Main {
+    --
+    + start() : void
+}
+class ControllerStartseite {
+    --
+    + initialize()
+    + SWZufaelligeFragen()
+    + SWSchwerpunkte()
+    + SWfalscheFragen()
+    + SWMarkierteFragen()
+    + SWFrageHinzufuegen()
+    + SWHilfe()
+}
+
+class ControllerFrageseite {
+    - frageTextbox: TextView
+    - radioButtons : RadioButton
+    - labelAntwort1 : Label
+    - labelAntwort2 : Label
+    - labelAntwort3 : Label
+    --
+    + antwortPruefen()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + markierenFrage()
+    + zureuck()
+    + zeilenUmbruch()
+}
+
+class ControllerSchwerpunkt{
+    - db : Datenbank
+    - schwerpunkt : String
+    --
+    + schwerpunktAuswaehlen()
+    + zurueck()
+    + getSchwerpunkt()
+}
+
+class ControllerFragehinzufuegen{
+    - frage : String
+    - richtig : String
+    - antwort2 : String
+    - antwort3 : String
+    --
+    + frageHinzufuegen()
+    + zurueck()
+}
+
+class ControllerHilfe{
+    --
+    + zurueck()
+}
+
+class ControllerflascheFrageSeite{
+    - db : Datenbank
+    - fragenarray : Integer[]
+    - aktuelleFrage : int = 0
+    - antworthash : ArrayList<String>
+    - antwortenarray : String
+    --
+    + initialize()
+    + zurueck()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + antwortPruefen()
+    + markierenFragen()
+    + zeilenUmbruch()
+}
+
+class ControllerMarkierteFrageSeite{
+    - db : Datenbank
+    - fragenarray : Integer[]
+    - aktuelleFrage : int = 0
+    - antworthash : ArrayList<String>
+    - antwortenarray : String
+    --
+    + initialize()
+    + zurueck()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + antwortPruefen()
+    + markierenFragen()
+    + zeilenUmbruch()
+}
+
+class ControllerSchwerpunktFrageSeite{
+    - db : Datenbank
+    - fragenarray : Integer[]
+    - aktuelleFrage : int = 0
+    - antworthash : ArrayList<String>
+    - antwortenarray : String
+    --
+    + manuellInitialisation()
+    + zurueck()
+    + naechsteFrage()
+    + vorherigeFrage()
+    + antwortPruefen()
+    + markierenFragen()
+    + setSchwerpunkt()
+    + zeilenUmbruch()
+}
+
+
+
+@enduml
