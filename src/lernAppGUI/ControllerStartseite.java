@@ -143,5 +143,4 @@ public class ControllerStartseite {
         window.show();
     }
 
-
 }
