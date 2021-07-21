@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="649.0" style="-fx-background-color: #36648B;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerfalscheFrageSeite">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="649.0" style="-fx-background-color: #36648B;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lernAppGUI.ControllerfalscheFrageSeite">
    <children>
       <Label fx:id="labelAnzeige" layoutX="10.0" layoutY="8.0" textFill="#ffe667" />
       <Button fx:id="buttonzurueck" layoutX="19.0" layoutY="322.0" mnemonicParsing="false" onAction="#vorherigeFrage" text="&lt; Zurück" />
