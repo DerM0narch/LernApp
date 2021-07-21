@@ -1,5 +1,0 @@
-[
-  {"ID": 1, "Frage":  "Irgeneine Frage", "Antworten": ["A1", "A2", "A3"], "Markiert":  true},
-  {"ID": 2, "Frage":  "Irgeneine Frage", "Antworten": ["A1", "A2", "A3"], "Markiert":  false},
-  {"ID": 3, "Frage":  "Irgeneine Frage", "Antworten": ["A1", "A2", "A3"], "Markiert":  true}
-]

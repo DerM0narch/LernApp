@@ -1,1 +1,0 @@
-Frage ist lustig; Antwort1 Antwort2 Antwort3 boolean
